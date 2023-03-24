@@ -23,4 +23,4 @@ class DiaryService {
     }
 }
 
-module.exports = { DiaryEntry, DiaryService }
+module.exports = { DiaryEntry, DiaryService };
