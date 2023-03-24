@@ -1,0 +1,29 @@
+body{
+    text-align: center;
+    background-color: #bd5734;
+}
+
+h1{
+    font-family: Dancing Script, Helvetica, sans-serif;
+    color: #7a3b2e;
+    padding: 1em 0em 0em 0em;
+}
+
+header p{
+    padding: 0em 0em 0.5em 0em;
+    font-style: italic;
+    color: #454140;
+}
+
+* {
+    font-family: Roboto, Helvetica, sans-serif;
+}
+
+header{
+    background-color: #a79e84;
+    margin-top: -22px;
+    margin-right: -10px;
+    margin-left: -10px;
+    border: #454140 solid
+}
+
