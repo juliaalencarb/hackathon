@@ -40,14 +40,25 @@ class DiaryService {
         return (response.rows[0])
     }
 
-    async update(id) {
+    async update(id, data) {
+        const { author, date, entry } = data;
         const response = await db.query(`
         UPDATE diary
-        SET 
-        WHERE`)
+        SET ($1, $2, $3)
+        WHERE entry_id = ${id}`, [ data.author, data.date, data.entry ])
+
+        return (response.rows[0])
     }
 
-
+    async destroy(id) {
+        const response = await db.query(`
+        DELETE FROM diary
+        WHERE entry_id = ${id}
+        RETURNING *
+        `)
+        
+        return (response.rows[0])
+    }
 }
 
 module.exports = { DiaryEntry, DiaryService }
