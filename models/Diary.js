@@ -11,15 +11,14 @@ class DiaryEntry {
 
 class DiaryService {
     static mapToModel(dbResponse) {
-        return dbResponse.rows.map(e => new DiaryEntry(e.entry_id, e.author, e.date, e.entry))
+        return dbResponse.rows.map(e => new DiaryEntry(e.entry_id, e.writer_name, e.e_date, e.w_entry))
     }
 
     static async getAll() {
         const entries = await db.query(`
         SELECT *
         FROM diary`)
-
-        return mapToModel(entries);
+        return DiaryService.mapToModel(entries);
     }
 
     static async create(data) {
@@ -62,5 +61,5 @@ class DiaryService {
 }
 
 
-module.exports = { DiaryEntry, DiaryService }
+module.exports = DiaryService;
 

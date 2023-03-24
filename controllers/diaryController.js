@@ -1,9 +1,8 @@
-const DiaryEntry = require('../models/Diary');
-const DiaryService = require('../models/Diary');
+const DiaryService = require('../models/Diary.js')
 
 async function showAll(req, res) {
     try {
-        const data = await DiaryService.getAll()
+        const data = await DiaryService.getAll();
         res.status(200).send(data)
     } catch(err) {
         res.status(404).json({"error": err.message})
