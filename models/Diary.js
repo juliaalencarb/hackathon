@@ -22,3 +22,5 @@ class DiaryService {
         return mapToModel(entries);
     }
 }
+
+module.exports = { DiaryEntry, DiaryService }
