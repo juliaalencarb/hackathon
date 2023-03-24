@@ -18,16 +18,18 @@ class DiaryService {
         const entries = await db.query(`
         SELECT *
         FROM diary`)
+
         return DiaryService.mapToModel(entries);
     }
 
     static async create(data) {
-        const { author, date, entry } = data;
         const response = await db.query(`
-        INSERT INTO diary (author, date, entry)
-        VALUES ($1, $2, $3)`, [ data.author, data.date, data.entry ]);
+        INSERT INTO diary (writer_name, e_date, w_entry)
+        VALUES ($1, $2, $3) RETURNING entry_id;`, [ data.author, data.date, data.entry ]);
+        const newId = response.rows[0].entry_id;
+        const newPost = await DiaryService.show(newId)
 
-        return new DiaryEntry(response.rows[0])
+        return newPost
     }
 
     static async show(id) {
