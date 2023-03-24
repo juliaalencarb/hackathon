@@ -3,13 +3,15 @@ body{
     background-color: #bd5734;
 }
 
-h1{
+header h1{
     font-family: Dancing Script, Helvetica, sans-serif;
     color: #7a3b2e;
-    padding: 1em 0em 0em 0em;
+    padding: 0.4em 0em 0em 0em;
+    position: relative;
 }
 
 header p{
+    /* position: relative; */
     padding: 0em 0em 0.5em 0em;
     font-style: italic;
     color: #454140;
@@ -21,9 +23,11 @@ header p{
 
 header{
     background-color: #a79e84;
-    margin-top: -22px;
-    margin-right: -10px;
-    margin-left: -10px;
-    border: #454140 solid
+    width: 100%;
+    left: 0;
+    top: 0;
+    border-bottom: #454140 solid;
+    position: fixed;
+    height: 130px;
 }
 
