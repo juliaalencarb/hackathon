@@ -50,5 +50,4 @@ class DiaryService {
 
 }
 
-
 module.exports = { DiaryEntry, DiaryService }
