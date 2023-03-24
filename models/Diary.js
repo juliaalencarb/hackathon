@@ -21,4 +21,31 @@ class DiaryService {
 
         return mapToModel(entries);
     }
+
+    static async create(data) {
+        const { author, date, entry } = data;
+        const response = await db.query(`
+        INSERT INTO diary (author, date, entry)
+        VALUES ($1, $2, $3)`, [ data.author, data.date, data.entry ]);
+
+        return new DiaryEntry(response.rows[0])
+    }
+
+    static async show(id) {
+        const response = await db.query(`
+        SELECT *
+        FROM diary
+        WHERE entry_id = ${id}`)
+
+        return (response.rows[0])
+    }
+
+    async update(id) {
+        const response = await db.query(`
+        UPDATE diary
+        SET 
+        WHERE`)
+    }
+
+
 }
